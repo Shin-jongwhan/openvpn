@@ -127,3 +127,7 @@ tc.key
 
 ### 이제 openvpn GUI를 열어서 server를 열고 client 컴퓨터에서 접속해보자. client.ovpn은 client 컴퓨터에 다운로드해서 openvpn/config 폴더 안에 넣어서 사용한다.
 #### ![image](https://github.com/user-attachments/assets/f0ba9bf6-a923-47c5-91ca-f5dd8c26dead)
+### <br/>
+
+### 나는 openvpn 서버 컴퓨터에서 mysql을 실행해놨고, 여기에 client에서 접속이 잘 되는지 테스트해봤는데 잘 된다 !
+### 이 때 접속할 때는 cmd 창에서 ipconfig를 입력해서 openvpn IPv4 주소를 입력해야 한다.
