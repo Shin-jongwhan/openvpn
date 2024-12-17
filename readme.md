@@ -63,4 +63,19 @@ explicit-exit-notify
 ### <br/>
 
 ### 이제 인증서 파일을 만들 준비를 한다.
-### C:\\Program Files\\OpenVPN\\easy-rsa\\EasyRSA-Start.bat를 실행한다.
+1. 검색창에서 cmd를 관리자 권한으로 실행
+2. cd C:\\Program Files\\OpenVPN\\easy-rsa\\
+3. EasyRSA-Start.bat 입력
+### 그 다음 아래 명령어들을 입력하고 모두 yes를 한다. 중간에 이름 설정하는 거 물어보는 게 있는데 본인이 원하는 걸로 하면 됨.
+```
+# easyrsa init-pki
+# easyrsa build-ca nopass
+# export EASYRSA_CERT_EXPIRE=3650
+# easyrsa gen-req server nopass
+# easyrsa sign-req server server
+# easyrsa gen-dh
+# easyrsa build-client-full client nopass
+# openvpn --genkey secret tc.key
+```
+### 그럼 이렇게 pki라는 폴더가 하나 생성된다.
+#### ![image](https://github.com/user-attachments/assets/d523d80c-5e4c-4228-9a27-f5c53bb5c475)
