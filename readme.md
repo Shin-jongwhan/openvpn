@@ -123,3 +123,7 @@ tc.key
 -----END OpenVPN Static key V1-----
 </tls-crypt>
 ```
+### <br/>
+
+### 이제 openvpn GUI를 열어서 server를 열고 client 컴퓨터에서 접속해보자. client.ovpn은 client 컴퓨터에 다운로드해서 openvpn/config 폴더 안에 넣어서 사용한다.
+#### ![image](https://github.com/user-attachments/assets/f0ba9bf6-a923-47c5-91ca-f5dd8c26dead)
