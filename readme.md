@@ -30,6 +30,7 @@
 ### 그리고 다음과 같이 입력하는데, local에는 본인 IPv4 주소, port에는 포트포워딩한 port 번호를 입력한다.
 ### 서버에서 특정 route를 푸시해서 사용하려면 push "route 192.168.0.0 255.255.255.0 vpn_gateway"를 이용한다.
 ### 접속된 클라이언트 간에 통신하려면 client-to-client을 이용한다.
+### DNS 주소는 서버 컴퓨터에서 DNS 설정한 주소랑 같아야 한다.
 ```
 local 111.111.111.111
 port 12345
@@ -45,9 +46,9 @@ topology subnet
 server 10.8.0.0 255.255.255.0
 push "redirect-gateway def1 bypass-dhcp"
 #ifconfig-pool-persist ipp.txt
-#push "dhcp-option DNS 1.1.1.1"
-#push "dhcp-option DNS 8.8.8.8"
-push "dhcp-option DNS 10.8.0.1"
+push "dhcp-option DNS 1.1.1.1"
+push "dhcp-option DNS 8.8.8.8"
+#push "dhcp-option DNS 10.8.0.1"
 #client-to-client
 push "route 192.168.0.0 255.255.255.0 vpn_gateway"
 keepalive 10 120
