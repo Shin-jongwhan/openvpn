@@ -79,3 +79,46 @@ explicit-exit-notify
 ```
 ### 그럼 이렇게 pki라는 폴더가 하나 생성된다.
 #### ![image](https://github.com/user-attachments/assets/d523d80c-5e4c-4228-9a27-f5c53bb5c475)
+### <br/>
+
+### 이제 클라이언트에서 접속할 수 있도록 인증서를 만들어야 한다.
+### 파일 이름은 client.ovpn으로 한다. 
+### 아래에서 remote \[WAN IP 주소\] \[port\]만 수정해서 사용한다.
+### WAN 주소는 공유기 홈페이지에서 확인한다.
+### port는 아까 포트포워딩한 주소를 입력한다.
+### 그리고 pki 폴더에 있는 .crt와 각종 key 파일에 있는 암호화된 키를 파일명 써진 곳에 넣는다.
+### C:\\Program Files\\OpenVPN\\easy-rsa\\ 안에는 tc.key 파일이 있다.
+```
+client
+dev tun
+proto udp
+remote [WAN IP 주소] [port]
+resolv-retry infinite
+nobind
+persist-key
+persist-tun
+remote-cert-tls server
+auth SHA512
+cipher AES-256-CBC
+verb 3
+<ca>
+-----BEGIN CERTIFICATE-----
+pki/ca.crt
+-----END CERTIFICATE-----
+</ca>
+<cert>
+-----BEGIN CERTIFICATE-----
+pki/issued/client.crt
+-----END CERTIFICATE-----
+</cert>
+<key>
+-----BEGIN PRIVATE KEY-----
+pki/private/client.key
+-----END PRIVATE KEY-----
+</key>
+<tls-crypt>
+-----BEGIN OpenVPN Static key V1-----
+tc.key
+-----END OpenVPN Static key V1-----
+</tls-crypt>
+```
