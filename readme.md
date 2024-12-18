@@ -131,3 +131,10 @@ tc.key
 
 ### 나는 openvpn 서버 컴퓨터에서 mysql을 실행해놨고, 여기에 client에서 접속이 잘 되는지 테스트해봤는데 잘 된다 !
 ### 이 때 접속할 때는 cmd 창에서 ipconfig를 입력해서 openvpn IPv4 주소를 입력해야 한다.
+### <br/><br/><br/>
+
+## 접속안 될 때 해결 사항들
+### 방화벽으로 인해 접속이 안 될 수도 있다.
+### 이 때는 UDP rule, openvpn 서버 포트를 inbound rule로 추가한다.
+#### ![image](https://github.com/user-attachments/assets/7ef1007a-3caa-4b73-8120-61bf99a79019)
+#### ![image](https://github.com/user-attachments/assets/be82f544-c337-445a-a2f8-8ac5588276d8)
