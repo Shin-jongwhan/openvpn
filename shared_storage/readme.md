@@ -21,5 +21,9 @@
 #### ![image](https://github.com/user-attachments/assets/aa7dcd8d-0c0d-4974-b72f-318810afccc2)
 ### <br/>
 
+### 이제 client 쪽에서 vpn 접속하고, 네트워크 드라이브 연결하는데, 서버와 똑같이 입력하면 안 되고 아래와 같이 입력해야 한다.
+```
+\\[host ip]\[dir_name]
+```
 
 
