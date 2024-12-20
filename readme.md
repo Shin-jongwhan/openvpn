@@ -149,6 +149,12 @@ tc.key
 ### 윈도우에서는 power shell을 관리자 권한으로 실행하고, internal ip address를 등록해줘야 한다.
 ### <br/>
 
+### powershell 버전 문제로 안 된다면 업그레이드 참고
+```
+iex "& { $(irm https://aka.ms/install-powershell.ps1) } -UseMSI"
+```
+### <br/>
+
 ### 내 net adapter를 확인하는 방법. 여기에서 Name이라고 써진 곳에 일단 OpenVPN TAP-Windows6이 등록되어 있어야 함
 ### 네트워크 연결 확인하는 곳에서도 확인 가능하다.
 ```
