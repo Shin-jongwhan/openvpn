@@ -138,3 +138,43 @@ tc.key
 ### 이 때는 UDP rule, openvpn 서버 포트를 inbound rule로 추가한다.
 #### ![image](https://github.com/user-attachments/assets/7ef1007a-3caa-4b73-8120-61bf99a79019)
 #### ![image](https://github.com/user-attachments/assets/be82f544-c337-445a-a2f8-8ac5588276d8)
+### <br/>
+
+---
+
+### 다음으로는 NAT을 설정해야 한다.
+### NAT (Network Address Translation)은 내부에서 라우팅하는 기술이다.
+### openvpn은 내부에서 ip를 별도로 할당한다. 그리고 이 ip가 어떤 실제 서버 ip와 연결이 되는지 명시를 해줘야 한다.
+### 왜냐면 서버 안에서는 그 ip와 인터넷이 연결이 되기 때문이다.
+### 윈도우에서는 power shell을 관리자 권한으로 실행하고, internal ip address를 등록해줘야 한다.
+### <br/>
+
+### 내 net adapter를 확인하는 방법. 여기에서 Name이라고 써진 곳에 일단 OpenVPN TAP-Windows6이 등록되어 있어야 함
+### 네트워크 연결 확인하는 곳에서도 확인 가능하다.
+```
+Get-NetAdapter
+```
+#### ![image](https://github.com/user-attachments/assets/124f9554-4ccc-466f-a4c0-e79440b10140)
+#### ![image](https://github.com/user-attachments/assets/85c0403e-7cd7-4255-bfe8-6d38ca08c546)
+### <br/>
+
+### 그리고 ip 주소 확인 방법이다. ipconfig 같은 건데 좀 더 상세하게 알려준다.
+### 여기서 OpenVPN TAP-Windows6를 찾는다.
+```
+Get-NetIPAddress
+```
+#### ![image](https://github.com/user-attachments/assets/56ed246a-0d89-4ba8-855b-f0cc51fe1471)
+### <br/>
+
+### NAT 등록 방법
+```
+New-NetNat -Name "OpenVPN_NAT" -InternalIPInterfaceAddressPrefix "[openvpn_IPv4_ip]/[subnet]"
+```
+### <br/>
+
+### 등록된 NAT 확인 방법
+```
+Get-NetNat
+```
+#### ![image](https://github.com/user-attachments/assets/cb3c0c59-b8f8-4e68-b640-f170db12cc89)
+
